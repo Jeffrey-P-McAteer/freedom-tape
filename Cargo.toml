@@ -1,0 +1,8 @@
+[workspace]
+members = [
+  "freedom-tape",
+]
+# Bevy needs this set ==2 for some reason
+resolver = "2"
+
+
