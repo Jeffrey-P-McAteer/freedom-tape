@@ -21,6 +21,11 @@ opt-level = 3
 version = "0.12"
 features = [
   "wayland",
-  "dynamic_linking"
+  "dynamic_linking",
+  "dds",
+  "shader_format_glsl",
+  "shader_format_spirv",
+  "subpixel_glyph_atlas",
+  "serialize",
 ]
 

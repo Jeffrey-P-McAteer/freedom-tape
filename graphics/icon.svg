@@ -9,11 +9,12 @@
    id="svg1"
    inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    sodipodi:docname="icon.svg"
-   inkscape:export-filename="../../../../tmp/icon.png"
+   inkscape:export-filename="icon.512.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -28,9 +29,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="2.170881"
-     inkscape:cx="274.08227"
-     inkscape:cy="205.90719"
+     inkscape:zoom="1.1781811"
+     inkscape:cx="249.53719"
+     inkscape:cy="286.88289"
      inkscape:window-width="1920"
      inkscape:window-height="1080"
      inkscape:window-x="0"
@@ -40,6 +41,18 @@
      showguides="false" />
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient8"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#f1f1f1;stop-opacity:1;"
+         offset="0"
+         id="stop8" />
+      <stop
+         style="stop-color:#d9d9d9;stop-opacity:1;"
+         offset="1"
+         id="stop9" />
+    </linearGradient>
     <inkscape:path-effect
        effect="spiro"
        id="path-effect9"
@@ -259,17 +272,43 @@
          inkscape:label="eyebrow-shadow-mask"
          sodipodi:nodetypes="cccccccc" />
     </mask>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8"
+       id="linearGradient9"
+       x1="71.670258"
+       y1="78.638123"
+       x2="95.743713"
+       y2="52.501724"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Eagle-v1"
      inkscape:groupmode="layer"
      id="layer1">
     <path
+       style="display:inline;fill:url(#linearGradient9);stroke-width:0.264999"
+       d="M 56.415556,44.075516 C 71.240033,71.339677 51.784,86.638822 33.557394,93.556867 15.330789,100.47491 -13.805117,108.3672 -13.805117,108.3672 l -0.08147,38.04016 162.521187,0.48813 0.1488,-16.01754 c 0,0 -21.49543,2.88033 -23.01908,-41.683995 C 124.51839,52.752476 71.587449,30.471713 71.587449,30.471713 Z"
+       id="path6"
+       inkscape:label="body-bg-1"
+       sodipodi:nodetypes="csccccscc" />
+    <path
        style="display:inline;fill:#e0e0e0;fill-opacity:1;stroke-width:0.264583"
        d="m 45.238128,27.509242 c 50.948938,-37.2843306 70.817322,-16.466519 78.170502,-2.050848 7.35319,14.415671 4.04462,64.416547 4.04462,64.416547"
        id="path2"
        inkscape:label="head-bg-top"
        sodipodi:nodetypes="csc" />
+    <path
+       style="display:inline;fill:#1b1a10;fill-opacity:1;stroke-width:0.264999"
+       d="M 69.590475,73.889425 C 61.28007,78.608504 51.384067,87.769274 32.587858,92.534141 13.690267,97.324709 -13.805117,108.3672 -13.805117,108.3672 l -0.08147,38.04016 162.521187,0.48813 0.1488,-16.01754 c 0,0 -22.38366,-3.9153 -21.60383,-40.369734 0.21203,-9.911532 -2.29837,-3.96242 -21.78898,-20.713061 -7.070495,-7.633248 -21.01245,-3.340711 -35.800115,4.09427 z"
+       id="path8"
+       inkscape:label="body-bg-2"
+       sodipodi:nodetypes="csccccscc" />
+    <path
+       style="fill:#cfdb2e;fill-opacity:1;stroke-width:0.264999"
+       d="M 19.021843,68.242552 C 25.593826,72.026329 59.262599,52.275644 68.392044,46.013806 77.521487,39.751968 38.044307,43.306857 38.044307,43.306857 L 16.871294,62.055771 Z"
+       id="path11"
+       inkscape:label="beak-lower" />
     <path
        style="display:inline;fill:#f0fe31;fill-opacity:1;stroke-width:0.264583"
        d="M 65.579332,18.972017 C -8.209316,44.463498 17.173598,75.548064 17.173598,75.548064 c 0,0 4.789573,-25.901868 44.30728,-26.404281 35.05759,-0.445707 4.098454,-30.171766 4.098454,-30.171766 z"
@@ -282,7 +321,7 @@
        id="path3"
        inkscape:label="head-fg-01" />
     <circle
-       style="fill:#0066ff;fill-opacity:1;stroke-width:0.265;stroke-dasharray:none;opacity:1"
+       style="display:inline;opacity:1;fill:#0066ff;fill-opacity:1;stroke-width:0.265;stroke-dasharray:none"
        id="path4"
        cx="93.015182"
        cy="24.998047"
@@ -291,7 +330,7 @@
        clip-path="url(#clipPath20)"
        mask="url(#mask26)" />
     <circle
-       style="fill:#000000;fill-opacity:1;stroke-width:0.191421"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.191421"
        id="path5"
        cx="91.568298"
        cy="26.200886"
