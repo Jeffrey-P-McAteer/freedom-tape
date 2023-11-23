@@ -38,6 +38,8 @@ LIBGL_ALWAYS_SOFTWARE=1 __GLX_VENDOR_LIBRARY_NAME=mesa VK_ICD_FILENAMES=/usr/sha
 # ^^ That one worked!
 
 
+yay -S godot
+
 ```
 
 

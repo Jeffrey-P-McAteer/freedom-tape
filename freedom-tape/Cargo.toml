@@ -6,6 +6,9 @@ authors = [
   "Jeffrey McAteer <jeffrey@jmcateer.com>"
 ]
 
+[lib]
+crate-type = ["cdylib"]
+
 
 [profile.dev]
 opt-level = 1
@@ -16,17 +19,7 @@ opt-level = 3
 
 [dependencies]
 swayipc = "3.0"
-wgpu = "0.18"
+godot = { git = "https://github.com/godot-rust/gdext", branch = "master" }
 
-[dependencies.bevy]
-version = "0.12"
-features = [
-  "wayland",
-  "dynamic_linking",
-  "dds",
-  "shader_format_glsl",
-  "shader_format_spirv",
-  "subpixel_glyph_atlas",
-  "serialize",
-]
+
 
