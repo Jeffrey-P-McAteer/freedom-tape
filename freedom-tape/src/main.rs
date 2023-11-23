@@ -47,12 +47,15 @@ fn maybe_tell_window_manager_to_float_us() {
       // First; scan for freedom-tape window.
       if let Ok(win_tree) = connection.get_tree() {
         if let Some(freedom_tape_node) = lookup_node(win_tree, "freedom-tape") {
-          println!("Found freedom_tape_node = {:?}", freedom_tape_node);
           dump_error!(connection.run_command("[title=\"freedom-tape\"] focus ; floating enable"));
           HAVE_FLOATED_WINDOW.store(true, Ordering::SeqCst);
         }
       }
     }
+  }
+  else {
+    // No SWAYSOCK in env, stop checking
+    HAVE_FLOATED_WINDOW.store(true, Ordering::SeqCst);
   }
 }
 
