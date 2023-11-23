@@ -16,7 +16,7 @@ opt-level = 3
 
 [dependencies]
 swayipc = "3.0"
-
+wgpu = "0.18"
 
 [dependencies.bevy]
 version = "0.12"

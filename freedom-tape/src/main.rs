@@ -10,29 +10,35 @@ use bevy::sprite::MaterialMesh2dBundle;
 use bevy::{animation::RepeatAnimation, pbr::CascadeShadowConfigBuilder};
 
 fn main() {
-    App::new()
-     //.add_plugins(DefaultPlugins)
-     .add_plugins(DefaultPlugins
-        .set(WindowPlugin {
-            primary_window: Some(Window {
-                title: "freedom-tape".to_string(),
-                decorations: false,
-                ..Default::default()
-            }),
-            ..Default::default()
-        })
-      )
-     .add_systems(Update, on_update_system)
-     .insert_resource(AmbientLight {
-          color: Color::WHITE,
-          brightness: 1.0,
+  // Hardware diagnostics
+  let adapters = wgpu::Instance::new(wgpu::InstanceDescriptor::default());
+  for adapter in adapters.enumerate_adapters(wgpu::Backends::all()) {
+      println!("{:?}", adapter.get_info())
+  }
+
+  App::new()
+   //.add_plugins(DefaultPlugins)
+   .add_plugins(DefaultPlugins
+      .set(WindowPlugin {
+          primary_window: Some(Window {
+              title: "freedom-tape".to_string(),
+              decorations: false,
+              ..Default::default()
+          }),
+          ..Default::default()
       })
-      .add_systems(Startup, setup)
-      .add_systems(
-          Update,
-          (setup_scene_once_loaded, keyboard_animation_control),
-      )
-     .run();
+    )
+   .add_systems(Update, on_update_system)
+   .insert_resource(AmbientLight {
+        color: Color::WHITE,
+        brightness: 1.0,
+    })
+    .add_systems(Startup, setup)
+    .add_systems(
+        Update,
+        (setup_scene_once_loaded, keyboard_animation_control),
+    )
+   .run();
 }
 
 static HAVE_FLOATED_WINDOW: AtomicBool = AtomicBool::new(false);
