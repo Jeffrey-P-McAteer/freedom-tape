@@ -3,7 +3,7 @@
 mod macros;
 use macros::*;
 
-use std::sync::atomic::{AtomicUsize, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use bevy::prelude::*;
 use bevy::sprite::MaterialMesh2dBundle;
@@ -21,19 +21,22 @@ fn main() {
             ..Default::default()
         })
       )
-     .add_systems(Update, hello_world_system)
+     .add_systems(Update, on_update_system)
      .add_systems(Startup, setup)
      .run();
 }
 
+static HAVE_FLOATED_WINDOW: AtomicBool = AtomicBool::new(false);
 static UPDATE_TICK: AtomicUsize = AtomicUsize::new(0);
 
-fn hello_world_system() {
+fn on_update_system() {
   println!("hello world");
   let tick = UPDATE_TICK.load(Ordering::Relaxed);
-  if tick > 6 && tick < 8 {
+
+  if !HAVE_FLOATED_WINDOW.load(Ordering::Relaxed) {
     maybe_tell_window_manager_to_float_us();
   }
+
   UPDATE_TICK.fetch_add(1, Ordering::Relaxed);
 }
 
@@ -41,11 +44,31 @@ fn hello_world_system() {
 fn maybe_tell_window_manager_to_float_us() {
   if let Ok(sway_sock_ipc) = std::env::var("SWAYSOCK") {
     if let Ok(mut connection) = swayipc::Connection::new() {
-      //dump_error!(connection.run_command("for_window[title=\"freedom-tape\"] floating enable"));
-      dump_error!(connection.run_command("[title=\"freedom-tape\"] focus ; floating enable"));
+      // First; scan for freedom-tape window.
+      if let Ok(win_tree) = connection.get_tree() {
+        if let Some(freedom_tape_node) = lookup_node(win_tree, "freedom-tape") {
+          println!("Found freedom_tape_node = {:?}", freedom_tape_node);
+          dump_error!(connection.run_command("[title=\"freedom-tape\"] focus ; floating enable"));
+          HAVE_FLOATED_WINDOW.store(true, Ordering::SeqCst);
+        }
+      }
     }
   }
 }
+
+fn lookup_node(root: swayipc::Node, name_to_find: &str) -> Option<swayipc::Node> {
+  let name = root.name.clone().unwrap_or(String::new());
+  if &name == name_to_find {
+    return Some(root.clone());
+  }
+  for child in root.nodes {
+    if let Some(found_node) = lookup_node(child, name_to_find) {
+      return Some(found_node.clone());
+    }
+  }
+  return None;
+}
+
 
 /// set up a simple 3D scene
 fn setup(
