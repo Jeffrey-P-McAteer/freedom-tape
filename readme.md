@@ -33,7 +33,7 @@ yay -S vulkan-radeon vulkan-intel vulkan-mesa-layers \
   mesa-vulkan-drivers  vulkan-icd-loader \
    vulkan-swrast
 
-LIBGL_ALWAYS_SOFTWARE=1 __GLX_VENDOR_LIBRARY_NAME=mesa VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.i686.json:/usr/share/vulkan/icd.d/lvp_icd.x86_64.json RUST_LOG=info WINIT_UNIX_BACKEND=wayland WGPU_BACKEND=gl cargo run --release
+LIBGL_ALWAYS_SOFTWARE=1 __GLX_VENDOR_LIBRARY_NAME=mesa VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.i686.json:/usr/share/vulkan/icd.d/lvp_icd.x86_64.json RUST_LOG=info WINIT_UNIX_BACKEND=wayland cargo run --release
 
 # ^^ That one worked!
 
