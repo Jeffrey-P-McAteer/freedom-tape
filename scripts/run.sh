@@ -26,3 +26,7 @@ fi
 
 $BUILD_CMD
 
+# Run the game
+if test -z "$@" ; then
+  godot --path ./godot --rendering-driver opengl3
+fi
