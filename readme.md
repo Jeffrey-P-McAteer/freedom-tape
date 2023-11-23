@@ -24,7 +24,9 @@ TODO
 ## Useful diagnostics
 
 ```bash
+# See https://github.com/gfx-rs/wgpu#environment-variables
 RUST_LOG=info WINIT_UNIX_BACKEND=wayland WGPU_BACKEND=gl cargo run --release
+
 
 # GPU software that didn't fix Bevy render issues on Wayland
 yay -S vulkan-radeon vulkan-intel vulkan-mesa-layers mesa-vulkan-drivers
